@@ -165,7 +165,8 @@ WHERE first_name LIKE '_a';
 
 -- 부서번호 오름차순 -> 부서번호, 급여, 이름
 SELECT department_id,
-    salary, first_name
+    salary, 
+    first_name
 FROM employees
 ORDER BY department_id; -- 오름차순 정렬
 
@@ -317,15 +318,8 @@ SELECT  first_name,  job_id, salary, SUBSTR(job_id, 1, 2),
     bonus
 FROM employees;
 
--- 연습 문제:
--- 직원의 이름, 부서, 팀 출력
--- 팀
--- 부서 코드: 10 ~ 30 -> A-group
--- 부서 코드: 40 ~ 50 -> B-group
--- 부서 코드: 60 ~ 100 -> C-group
--- 나머지 : REMAINDER
-SELECT 
-    
-    
+
+
+
 
     
