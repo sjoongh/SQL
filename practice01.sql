@@ -80,7 +80,6 @@ ORDER BY LENGTH(department_name) DESC;
 --올림차순(ASC)으로 정렬해 보세오.
 SELECT UPPER(country_name) 나라이름
 FROM countries
-WHERE country_name IS NOT NULL
 ORDER BY country_name;
 
 --문제10.
@@ -89,6 +88,8 @@ ORDER BY country_name;
 SELECT first_name || ' ' || last_name 이름, salary 월급, REPLACE(phone_number, '.', '-') "전화번호", hire_date 입사일
 FROM employees
 WHERE hire_date >= '03/12/31';
+<<<<<<< HEAD
+=======
 
 
 --문제1.
@@ -183,6 +184,7 @@ JOIN regions r ON (c.region_id = r.region_id); -- 반복
 --문제9.
 --각 사원(employee)에 대해서 사번(employee_id), 이름(first_name), 부서명
 --(department_name), 매니저(manager)의 이름(first_name)을 조회하세요.
+<<<<<<< HEAD
 --부서가 없는 직원(Kimberely)도 표시합니다. (106명)
 SELECT s.employee_id, s.first_name, d.department_name, m.first_name
 FROM employees s JOIN employees m ON (s.employee_id = m.manager_id)
@@ -236,3 +238,8 @@ GROUP BY department_id;
 --입사일이 02/12/31일 이전이면 '창립맴버, 03년은 '03년입사’, 04년은 ‘04년입사’
 --이후입사자는 ‘상장이후입사’ optDate 컬럼의 데이터로 출력하세요.
 --정렬은 입사일로 오름차순으로 정렬합니다.
+=======
+--부서가 없는 직원(Kimberely)도 표시합니다.
+--(106명)
+>>>>>>> b5dc3349fb38aa7c6eff460bf9b9203cd2983e35
+>>>>>>> 16f8aa44fd77048e67ee06bdf1a4db98314cde6c
