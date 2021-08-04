@@ -195,4 +195,14 @@ SELECT department_id,
     job_id,
     SUM(salary)
 FROM employees
-GROUP BU ROLLUP(department_id, job_id);
+GROUP BY ROLLUP(department_id, job_id);
+
+-- CUBE 함수
+-- Cross TABLE에 대한 Summary를 함께 추출
+-- ROLLUP 함수에서 추출되는 ITem Total과 함께
+-- Column Total 값을 함께 추출
+SELECT department_id, job_id, SUM(salary)
+FROM employees
+GROUP BY CUBE (department_id, job_id)
+ORDER BY department_id;
+
