@@ -80,7 +80,6 @@ ORDER BY LENGTH(department_name) DESC;
 --올림차순(ASC)으로 정렬해 보세오.
 SELECT UPPER(country_name) 나라이름
 FROM countries
-WHERE country_name IS NOT NULL
 ORDER BY country_name;
 
 --문제10.
