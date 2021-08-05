@@ -292,16 +292,59 @@ ORDER BY hire_date;
 -- 문제1
 SELECT COUNT(salary)
 FROM employees WHERE salary < (SELECT AVG(salary) FROM employees);
--- 문제2
-SELECT employee_id, first_name, MAX(salary)
+
+--문제2. 
+SELECT employee_id, first_name, salary, AVG(salary), MAX(salary)
 FROM employees
-ORDER BY salary;
+WHERE salary >= (SELECT salary, AVG(salary) FROM employees) and
+salary <= (SELECT MAX(salary) FROM employees)
+GROUP BY employee_id, first_name, salary;
+
 -- 문제3
-SELECT location_id, street_address, postal_code
-FROM
+SELECT t1.location_id, street_address, postal_code, city, state_province, country_id
+FROM locations t1 JOIN departments t2 ON(t2.location_id = t1.location_id) 
+JOIN employees t3 ON (t2.department_id = t3.department_id)
+WHERE CONCAT(first_name, last_name) LIKE '%StevenKing%';
+
 -- 문제4
+SELECT employee_id, first_name, salary
+FROM employees
+WHERE salary < ANY 
+(SELECT salary FROM employees WHERE job_id LIKE '%ST_MAN%')
+ORDER BY salary;
+
+
 -- 문제5
+SELECT employee_id, first_name, salary, department_id
+FROM employees
+WHERE (department_id, salary) IN (SELECT department_id, MAX(salary) FROM employees
+GROUP BY department_id)
+ORDER BY department_id;
+
+--SELECT e.department_id, e.employee_id, e.first_name, e.salary
+--FROM employees e, (SELECT department_id, MAX(salary) s FROM employees
+--                            GROUP BY department_id) sal
+--WHERE e.department_id = sal.department_id AND e.salary = sal.s
+--ORDER BY e.department_id;
+-- 다시보기
+
 -- 문제6
+--각 업무(job) 별로 연봉(salary)의 총합을 구하고자 합니다. 
+--연봉 총합이 가장 높은 업무부터 업무명(job_title)과 연봉 총합을 조회하시오
+--(19건
+SELECT j.job_title, sum(e.salary)
+FROM jobs j, employees e
+GROUP BY j.job_title
+ORDER BY sum(e.salary) DESC;
+
 -- 문제7
+SELECT e.employee_id, e.first_name, e.salary
+FROM employees e
+WHERE e.salary > (SELECT AVG(salary) FROM employees
+WHERE department_id = e.department_id);
+
 -- 문제8
--- 문제9
+SELECT rnum, employee_id, first_name, salary, hire_date
+FROM (SELECT rownum rnum, employee_id, first_name, salary, hire_date 
+FROM( SELECT employee_id, first_name, salary, hire_date FROM employees ORDER BY hire_date))
+WHERE rnum <= 15 and  rnum >= 11;
