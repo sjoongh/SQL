@@ -293,10 +293,11 @@ ORDER BY hire_date;
 SELECT COUNT(salary)
 FROM employees WHERE salary < (SELECT AVG(salary) FROM employees);
 -- 문제2
-SELECT employee_id, first_name, salary s
-FROM employees;
+SELECT employee_id, first_name, MAX(salary)
+FROM employees
+ORDER BY salary;
 -- 문제3
-SELECT
+SELECT location_id, street_address, postal_code
 FROM
 -- 문제4
 -- 문제5
