@@ -141,8 +141,8 @@ ORDER BY region_name, country_name DESC;
 --사일(hire_date)을 조회하세요.(37건)
 SELECT e. employee_id, e.first_name, e.hire_date,
         m.first_name, m.hire_date
-FROM employees e JOIN employees m ON (e.employee_id = m.manager_id)
-WHERE e.hire_date > m.hire_date;
+FROM employees e JOIN employees m ON (e.manager_id = m.employee_id)
+WHERE e.hire_date < m.hire_date;
 
 --문제6.
 --나라별로 어떠한 부서들이 위치하고 있는지 파악하려고 합니다.
@@ -151,7 +151,11 @@ WHERE e.hire_date > m.hire_date;
 SELECT t3.country_name, t3.country_id, t1.city, t1.location_id, t2.department_name, t2.department_id
 FROM locations t1 JOIN departments t2 ON (t1.location_id = t2.location_id)
 JOIN countries t3 ON (t1.country_id = t3.country_id)
+--FROM locations t1, departments t2, countries t3
+--WHERE t1.location_id = t2.location_id AND t1.country_id = t3.country_id 
+--> WHERE절로 해도 상관없는듯 JOIN 대신
 ORDER BY country_name;
+
 
 --문제7.
 --job_history 테이블은 과거의 담당업무의 데이터를 가지고 있다.
@@ -186,7 +190,6 @@ JOIN regions r ON (c.region_id = r.region_id); -- 반복
 SELECT s.employee_id, s.first_name, d.department_name, m.first_name
 FROM employees s JOIN employees m ON (s.employee_id = m.manager_id)
 JOIN departments d ON (s.department_id = d.department_id);
-
 
 --문제1.
 --매니저가 있는 직원은 몇 명입니까? 아래의 결과가 나오도록 쿼리문을 작성하세요 (106)
