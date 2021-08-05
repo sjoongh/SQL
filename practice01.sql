@@ -1,6 +1,5 @@
 -- 연습 문제:
 -- 직원의 이름, 부서, 팀 출력
--- 팀
 -- 부서 코드: 10 ~ 30 -> A-group
 -- 부서 코드: 40 ~ 50 -> B-group
 -- 부서 코드: 60 ~ 100 -> C-group
@@ -89,6 +88,9 @@ SELECT first_name || ' ' || last_name 이름, salary 월급, REPLACE(phone_numbe
 FROM employees
 WHERE hire_date >= '03/12/31';
 
+-------------
+-- 조인 문제
+-------------
 
 --문제1.
 --직원들의 사번(employee_id), 이름(firt_name), 성(last_name)과 부서명(department_name)을
@@ -191,6 +193,10 @@ SELECT s.employee_id, s.first_name, d.department_name, m.first_name
 FROM employees s JOIN employees m ON (s.employee_id = m.manager_id)
 JOIN departments d ON (s.department_id = d.department_id);
 
+-------------
+-- 집계 문제
+-------------
+
 --문제1.
 --매니저가 있는 직원은 몇 명입니까? 아래의 결과가 나오도록 쿼리문을 작성하세요 (106)
 SELECT COUNT(manager_id)
@@ -279,3 +285,21 @@ SELECT employee_id, salary,
     hire_date
 FROM employees
 ORDER BY hire_date;
+
+-------------
+-- 서브쿼리 문제
+-------------
+-- 문제1
+SELECT COUNT(salary)
+FROM employees WHERE salary < (SELECT AVG(salary) FROM employees);
+-- 문제2
+SELECT employee_id, first_name, AVG(salary) s
+FROM employees WHERE salary < (SELECT MAX(salary) a FROM employees)
+ORDER BY salary;
+-- 문제3
+-- 문제4
+-- 문제5
+-- 문제6
+-- 문제7
+-- 문제8
+-- 문제9
