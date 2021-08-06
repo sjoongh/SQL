@@ -348,3 +348,11 @@ SELECT rnum, employee_id, first_name, salary, hire_date
 FROM (SELECT rownum rnum, employee_id, first_name, salary, hire_date 
 FROM( SELECT employee_id, first_name, salary, hire_date FROM employees ORDER BY hire_date))
 WHERE rnum <= 15 and  rnum >= 11;
+
+
+CREATE USER c##bituser IDENTIFIED BY bituser;
+GRANT CONNECT, RESOURCE TO C##BITUSER;
+
+ALTER USER C##BITUSER DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
+
+GRANT SELECT ON HR.EMPLOYEES TO C##BITUSER;
