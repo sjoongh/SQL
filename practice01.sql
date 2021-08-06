@@ -291,14 +291,14 @@ ORDER BY hire_date;
 -------------
 -- 문제1
 SELECT COUNT(salary)
-FROM employees WHERE salary < (SELECT AVG(salary) FROM employees);
+FROM employees 
+WHERE salary < (SELECT AVG(salary) FROM employees);
 
 --문제2. 
-SELECT employee_id, first_name, salary, AVG(salary), MAX(salary)
-FROM employees
-WHERE salary >= (SELECT salary, AVG(salary) FROM employees) and
-salary <= (SELECT MAX(salary) FROM employees)
-GROUP BY employee_id, first_name, salary;
+SELECT e.employee_id, e.first_name, e.salary, t.avgSalary, t.maxsalary
+FROM employees e, (SELECT AVG(salary) avgsalary, MAX(salary) maxsalary FROM employees) t
+WHERE e.salary BETWEEN t.avgsalary AND t.maxsalary
+ORDER BY salary;
 
 -- 문제3
 SELECT t1.location_id, street_address, postal_code, city, state_province, country_id
@@ -338,7 +338,7 @@ GROUP BY j.job_title
 ORDER BY sum(e.salary) DESC;
 
 -- 문제7
-SELECT e.employee_id, e.first_name, e.salary
+SELECT e.employees_id, e.first_name, e.salary
 FROM employees e
 WHERE e.salary > (SELECT AVG(salary) FROM employees
 WHERE department_id = e.department_id);
