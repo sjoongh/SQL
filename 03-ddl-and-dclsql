@@ -80,6 +80,10 @@ CREATE TABLE book (
     pub_date DATE DEFAULT SYSDATE
 );
 
+CREATE TABLE phone_book (
+    id 
+)
+
 SELECT * FROM tab;
 DESC book;
  -- 테이블 정의 정보 확인
@@ -100,10 +104,11 @@ SELECT * FROM IT_EMPS;
 --DROP TABLE IT_EMPS; -- 삭제
 
 -- author 테이블 추가
-CREATE TABLE author (
-    author_id NUMBER(10),
-    author_name VARCHAR2(50) NOT NULL,
-    author_desc VARCHAR2(500),
+CREATE TABLE phone_book (
+    ID NUMBER(20),
+    NAME VARCHAR2(50),
+    HP VARCHAR2(50),
+    TEL VARCHAR2(50),
     PRIMARY KEY(author_id) -- 테이블 제약
 );
 
