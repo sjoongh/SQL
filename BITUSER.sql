@@ -7,7 +7,7 @@ CREATE TABLE emaillist (
 CREATE SEQUENCE seq_emaillist_pk
 	START WITH 1
 	INCREMENT BY 1;
-    
+
 INSERT INTO emaillist (no, first_name, last_name, email)
 VALUES(seq_emaillist_pk.NEXTVAL, '중호', '신', 'az45687@naver.com');
 
@@ -30,3 +30,24 @@ VALUES(seq_users_pk.nextval, '관리자', '12345678', 'admin@example.com', 'M');
 commit;
 
 SELECT * FROM users;
+
+
+CREATE TABLE address_book (
+    no number primary key,
+    name varchar2(20) NOT NULL,
+    hp varchar2(20) NOT NULL,
+    tel varchar2(20) NOT NULL);
+CREATE SEQUENCE seq_address_book_pk
+	START WITH 1
+	INCREMENT BY 1;
+    
+INSERT INTO address_book (no, name, hp, tel)
+VALUES(seq_address_book_pk.NEXTVAL, '비', '010-245', '02234-12');
+
+SELECT * FROM address_book;
+
+COMMIT;
+
+drop table address_book;
+
+drop sequence seq_adress_book_pk;
