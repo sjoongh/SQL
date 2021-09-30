@@ -42,12 +42,8 @@ CREATE SEQUENCE seq_address_book_pk
 	INCREMENT BY 1;
     
 INSERT INTO address_book (no, name, hp, tel)
-VALUES(seq_address_book_pk.NEXTVAL, '비', '010-245', '02234-12');
+VALUES(seq_address_book_pk.NEXTVAL, '비비빅', '010-2454-1231', '02-2134-1242');
 
 SELECT * FROM address_book;
 
 COMMIT;
-
-drop table address_book;
-
-drop sequence seq_adress_book_pk;
