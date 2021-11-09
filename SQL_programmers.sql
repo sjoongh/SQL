@@ -75,3 +75,8 @@ ORDER BY ANIMAL_ID;
 --Mission 14
 SELECT COUNT(ANIMAL_ID)
 FROM ANIMAL_INS;
+
+--Mission 15
+SELECT count(DISTINCT name)
+FROM animal_ins
+WHERE name IS NOT null;
