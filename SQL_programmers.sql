@@ -82,6 +82,11 @@ FROM animal_ins
 WHERE name IS NOT null;
 
 --Mission 16
+-- TO_CHAR로 HH24=24시간을 표현, MM60=60분
+-- 해당 테이블 열을 전부 COUNT
+-- WHERE ... BETWEEN 09 AND 19로 조건 걸어줌
+-- SELECT에 GROUP BY문법을 사용했으므로 DATETIME을 기준으로 묶어줌
+-- AES정렬
 SELECT TO_CHAR(DATETIME, 'HH24') AS HOUR, COUNT(*) AS COUNT
 FROM ANIMAL_OUTS
 WHERE TO_CHAR(DATETIME, 'HH24') BETWEEN 09 AND 19
