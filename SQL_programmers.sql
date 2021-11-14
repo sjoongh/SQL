@@ -115,3 +115,9 @@ RIGHT JOIN ANIMAL_OUTS b
 ON a.ANIMAL_ID = b.ANIMAL_ID
 WHERE a.ANIMAL_ID IS NULL
 ORDER BY ANIMAL_ID;
+
+--Mission 21
+select emp.ename,emp.empno,dept.dname,dept.deptno
+from emp, dept
+where emp.deptno = dept.deptno;
+
