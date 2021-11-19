@@ -121,3 +121,5 @@ select emp.ename,emp.empno,dept.dname,dept.deptno
 from emp, dept
 where emp.deptno = dept.deptno;
 
+--Mission 22
+SELECT ANIMAL_ID, NAME
