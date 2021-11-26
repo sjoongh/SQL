@@ -133,3 +133,10 @@ SELECT B.ANIMAL_ID, B.NAME
 FROM ANIMAL_INS A, ANIMAL_OUTS B
 WHERE A.DATETIME > B.DATETIME
 ORDER BY A.DATETIME;
+
+--Mission 24
+select empno, ename, job, hiredate, sal 
+from emp 
+where job=(select job from emp where empno=7521) 
+and 
+sal>(select sal from emp where empno=7934);
