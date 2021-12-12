@@ -167,5 +167,9 @@ having count(deptno) =
 from emp
 group by deptno)
 
+--Mission 28
+select ename, hiredate, deptno
+from emp
+where hiredate < to_date('05/01/01', 'YY/MM/DD') order by hiredate;
 
 
