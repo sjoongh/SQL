@@ -34,3 +34,11 @@ SELECT E.ENAME 사원명
 FROM EMP E,
 (SELECT DEPTNO FROM EMP WHERE JOB='MANAGER')E1
 WHERE E.DEPTNO = E1.DEPTNO; 
+
+-- JOIN활용
+select ANIMAL_ID,NAME 
+from ( select o.animal_id as 'ANIMAL_ID',
+o.name as 'NAME',i.animal_id as 'i_id' 
+from animal_outs as o left 
+join animal_ins as i on i.animal_id = o.animal_id ) sq1
+where i_id is NULL
