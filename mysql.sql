@@ -42,3 +42,13 @@ o.name as 'NAME',i.animal_id as 'i_id'
 from animal_outs as o left 
 join animal_ins as i on i.animal_id = o.animal_id ) sq1
 where i_id is NULL
+
+-- DEPT Table에는 존재하는 부서 코드이지만 해당 부서에 근무하는 사람이 존재하지 않는 경우의 결과를 출력
+select *
+from dept
+where deptno not in (
+    select deptno
+    from emp
+    group by deptno
+    having count(*) > 0
+);
