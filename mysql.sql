@@ -52,3 +52,8 @@ where deptno not in (
     group by deptno
     having count(*) > 0
 );
+
+-- 동물의 종류 파악 (count)
+select animal_type,count(*)
+from animal_ins
+group by animal_type
