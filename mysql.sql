@@ -57,3 +57,10 @@ where deptno not in (
 select animal_type,count(*)
 from animal_ins
 group by animal_type
+
+-- 멕시코(Mexico)보다 인구가 많은 나라이름과 인구수를 조회하시고 인구수 순으로 내림차순
+select name, population
+from country
+where population > 
+(select population from country where code = 'MEX' ) 
+order by population desc;
