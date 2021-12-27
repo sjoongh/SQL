@@ -172,4 +172,9 @@ select ename, hiredate, deptno
 from emp
 where hiredate < to_date('05/01/01', 'YY/MM/DD') order by hiredate;
 
+-- Mission 29
+select ename, empno, dname, dept.deptno
+from emp join dept
+on emp.deptno = dept.deptno;
+
 
