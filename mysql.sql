@@ -64,3 +64,11 @@ from country
 where population > 
 (select population from country where code = 'MEX' ) 
 order by population desc;
+
+-- 부서번호가 10인 사원중에서 최대급여를 받는 사원과 동일한 급여를 받는 사원의 사원번호, 이름을 조회
+SELECT EMPNO,ENAME 
+FROM EMP 
+WHERE SAL = (
+SELECT MAX(SAL) FROM EMP WHERE DEPTNO = 10
+);
+
