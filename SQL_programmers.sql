@@ -177,4 +177,9 @@ select ename, empno, dname, dept.deptno
 from emp join dept
 on emp.deptno = dept.deptno;
 
-
+-- Mission 30
+-- 부서가 30이고 급여가 1500이상인 사원의 이름, 급여, 부서명, 부서번호 출력
+select emp.ename, emp.sal, dept.dname, dept.deptno
+from emp join dept on emp.deptno = dept.deptno
+where emp.deptno = 30
+and sal >= 1500;
