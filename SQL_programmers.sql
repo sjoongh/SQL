@@ -183,3 +183,6 @@ select emp.ename, emp.sal, dept.dname, dept.deptno
 from emp join dept on emp.deptno = dept.deptno
 where emp.deptno = 30
 and sal >= 1500;
+
+--Mission 31
+SELECT ANIMAL_TYPE, COUNT(*) AS COUNT FROM ANIMAL_INS GROUP BY ANIMAL_TYPE ORDER BY ANIMAL_TYPE
