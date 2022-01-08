@@ -77,3 +77,9 @@ SELECT ANIMAL_ID, NAME
 FROM ANIMAL_INS
 WHERE INTAKE_CONDITION != "Aged"
 ORDER BY ANIMAL_ID
+
+-- 한번도 구매하지 않은 사람의 직업
+SELECT job FROM job_list
+LEFT OUTER JOIN customers ON job_list.j_id = customers.j_id
+LEFT OUTER JOIN order_list ON customers.c_id = order_list.c_id
+WHERE order_list.c_id IS NULL;
