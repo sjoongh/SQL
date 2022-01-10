@@ -83,3 +83,13 @@ SELECT job FROM job_list
 LEFT OUTER JOIN customers ON job_list.j_id = customers.j_id
 LEFT OUTER JOIN order_list ON customers.c_id = order_list.c_id
 WHERE order_list.c_id IS NULL;
+
+-- 환산평점이 가장 높은 3명의 학생을 검색하는 예제(다중쿼리)
+SELECT SNO,SNAME,(AVR/4.0 *4.5)
+FROM STUDENT
+ORDER BY 3 DESC;
+SELECT ROWNUM, S.*
+FROM (SELECT SNO,SNAME,(AVR/4.0 *4.5)
+FROM STUDENT
+ORDER BY AVR DESC)S
+WHERE ROWNUM <= 3;
