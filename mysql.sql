@@ -93,3 +93,8 @@ FROM (SELECT SNO,SNAME,(AVR/4.0 *4.5)
 FROM STUDENT
 ORDER BY AVR DESC)S
 WHERE ROWNUM <= 3;
+
+-- 직업이 student인 고객의 이름과 구매총액
+SELECT c_name, sum(p_price)
+FROM customers JOIN order_list JOIN products JOIN job_list
+WHERE job = 'student';
