@@ -98,3 +98,9 @@ WHERE ROWNUM <= 3;
 SELECT c_name, sum(p_price)
 FROM customers JOIN order_list JOIN products JOIN job_list
 WHERE job = 'student';
+
+-- self join
+select emp1.empNo 사원번호, emp1.empName 직원이름,
+emp1.manager 매니저 번호, emp2.empName 매니저이름
+from employee emp1
+join employee emp2 on emp1.manager = emp2.empNo
