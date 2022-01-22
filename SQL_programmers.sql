@@ -186,3 +186,8 @@ and sal >= 1500;
 
 --Mission 31
 SELECT ANIMAL_TYPE, COUNT(*) AS COUNT FROM ANIMAL_INS GROUP BY ANIMAL_TYPE ORDER BY ANIMAL_TYPE
+
+--Mission 32
+select e.NAME as 사원명, d.NAME as 부서
+from S_DEPT d, S_EMP e, S_REGION r
+where d.REGION_ID = r.ID and e.DEPT_ID = d.ID and r.NAME = '서울특별시';
