@@ -104,3 +104,11 @@ select emp1.empNo 사원번호, emp1.empName 직원이름,
 emp1.manager 매니저 번호, emp2.empName 매니저이름
 from employee emp1
 join employee emp2 on emp1.manager = emp2.empNo
+
+-- blake와 동일한 부서에 속한 사원의 이름과 입사일 표시
+-- 단 bleak는 제외
+ROM EMP E ,EMP E1
+WHERE E.DEPTNO = E1.DEPTNO AND
+-- BLAKE 가 속한 부서 
+E.ENAME = 'BLAKE' AND
+NOT E1.ENAME ='BLAKE';
