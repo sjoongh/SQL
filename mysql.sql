@@ -112,3 +112,9 @@ WHERE E.DEPTNO = E1.DEPTNO AND
 -- BLAKE 가 속한 부서 
 E.ENAME = 'BLAKE' AND
 NOT E1.ENAME ='BLAKE';
+
+-- 특정이름 조회
+SELECT ANIMAL_ID, NAME, SEX_UPON_INTAKE 
+FROM ANIMAL_INS 
+WHERE NAME IN ('Lucy', 'Ella', 'Pickle', 'Rogan', 'Sabrina', 'Mitty') 
+ORDER BY ANIMAL_ID
