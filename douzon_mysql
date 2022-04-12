@@ -1,0 +1,8 @@
+-- 문제1] 학생 성별 'F'찾기
+select * from student where gender like 'F';
+-- 문제2] 학생 이름 중에 2번째 글자가 a, 또는 s 글자가 들어가는 이름
+select * from student where name like '_a%' or name like '_s%'; 
+-- 문제3] 직원 테이블 이용해서 first_name에 p로 시작하는 이름
+select * from employees where first_name like '%p';
+-- 문제4] birth_date 99년 이후에 태어난 사람만 찾기
+select * from employees where birth_date > 99;
